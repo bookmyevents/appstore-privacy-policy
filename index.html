@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>BookMyEvent Privacy Policy</title>
+    <style>
+        :root {
+            --bg: #f6f7f4;
+            --panel: rgba(255, 255, 255, 0.82);
+            --text: #173333;
+            --muted: #5d7474;
+            --accent: #008f9e;
+            --accent-dark: #0f676f;
+            --line: rgba(23, 51, 51, 0.12);
+            --shadow: 0 24px 60px rgba(15, 40, 40, 0.12);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: "Georgia", "Times New Roman", serif;
+            color: var(--text);
+            background:
+                radial-gradient(circle at top left, rgba(0, 143, 158, 0.18), transparent 28%),
+                radial-gradient(circle at top right, rgba(227, 81, 61, 0.14), transparent 24%),
+                linear-gradient(180deg, #f9faf7 0%, var(--bg) 100%);
+            line-height: 1.65;
+        }
+
+        .wrap {
+            width: min(920px, calc(100% - 32px));
+            margin: 48px auto;
+        }
+
+        .hero,
+        .section {
+            background: var(--panel);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--line);
+            border-radius: 24px;
+            box-shadow: var(--shadow);
+        }
+
+        .hero {
+            padding: 40px 32px;
+            margin-bottom: 20px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .hero::after {
+            content: "";
+            position: absolute;
+            inset: auto -40px -60px auto;
+            width: 220px;
+            height: 220px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(0, 143, 158, 0.18), transparent 70%);
+        }
+
+        .eyebrow {
+            display: inline-block;
+            padding: 6px 12px;
+            border-radius: 999px;
+            background: rgba(0, 143, 158, 0.10);
+            color: var(--accent-dark);
+            font-size: 0.84rem;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+        }
+
+        h1,
+        h2,
+        h3 {
+            margin: 0 0 12px;
+            line-height: 1.15;
+        }
+
+        h1 {
+            font-size: clamp(2.2rem, 5vw, 4rem);
+            margin-top: 18px;
+        }
+
+        h2 {
+            font-size: 1.45rem;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--line);
+        }
+
+        p,
+        li {
+            font-size: 1.03rem;
+        }
+
+        .meta {
+            margin-top: 16px;
+            color: var(--muted);
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 20px;
+        }
+
+        .section {
+            padding: 28px;
+        }
+
+        .section.full {
+            grid-column: 1 / -1;
+        }
+
+        ul {
+            margin: 14px 0 0;
+            padding-left: 22px;
+        }
+
+        strong {
+            color: var(--accent-dark);
+        }
+
+        a {
+            color: var(--accent);
+        }
+
+        .footer {
+            margin: 22px 4px 0;
+            color: var(--muted);
+            font-size: 0.95rem;
+        }
+
+        @media (max-width: 720px) {
+            .wrap {
+                width: min(100% - 20px, 920px);
+                margin: 20px auto 28px;
+            }
+
+            .hero,
+            .section {
+                border-radius: 18px;
+            }
+
+            .hero {
+                padding: 28px 22px;
+            }
+
+            .section {
+                padding: 22px;
+            }
+
+            .grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main class="wrap">
+        <section class="hero">
+            <span class="eyebrow">BookMyEvent</span>
+            <h1>Privacy Policy</h1>
+            <p>
+                This Privacy Policy explains how BookMyEvent collects, uses, and shares information when you use the
+                BookMyEvent iOS application.
+            </p>
+            <p class="meta">
+                Effective date: March 28, 2026
+            </p>
+        </section>
+
+        <div class="grid">
+            <section class="section">
+                <h2>Information We Collect</h2>
+                <ul>
+                    <li><strong>Phone number and verification data</strong> to sign you in with one-time password authentication.</li>
+                    <li><strong>Vendor registration details</strong> such as business name, category, description, services, phone number, email, location, pricing level, and availability if you choose to create a vendor listing.</li>
+                    <li><strong>Event planning inputs</strong> such as event type, location, guest count, budget, date, and preferences entered in the app or AI Assistant.</li>
+                    <li><strong>On-device preference data</strong> such as login state, saved phone number, vendor status, and favorites stored locally on your device.</li>
+                    <li><strong>Technical verification data</strong> used by Firebase Authentication, including information needed to deliver and validate phone sign-in and related anti-abuse checks.</li>
+                </ul>
+            </section>
+
+            <section class="section">
+                <h2>How We Use Information</h2>
+                <ul>
+                    <li>To authenticate users and maintain sign-in state.</li>
+                    <li>To create and display vendor listings inside the app.</li>
+                    <li>To provide vendor discovery, package recommendations, and event planning assistance.</li>
+                    <li>To support basic app functionality such as favorites and profile display.</li>
+                    <li>To protect the service against fraud, abuse, and unauthorized access.</li>
+                </ul>
+            </section>
+
+            <section class="section full">
+                <h2>How Information Is Shared</h2>
+                <p>
+                    We do not sell your personal information. We may share information with service providers that help
+                    us operate the app. At this time, BookMyEvent uses <strong>Firebase Authentication</strong> from
+                    Google to support phone number sign-in and related verification flows. Information you submit as a
+                    vendor may also be displayed to other users inside the app as part of your listing.
+                </p>
+            </section>
+
+            <section class="section">
+                <h2>Data Storage</h2>
+                <p>
+                    Some information is stored locally on your device, including login state, your phone number, vendor
+                    status, and favorites. Authentication and verification-related information may be processed by
+                    Firebase Authentication according to Google’s terms and privacy practices.
+                </p>
+            </section>
+
+            <section class="section">
+                <h2>Data Retention</h2>
+                <p>
+                    We retain information for as long as needed to provide the app’s functionality, comply with legal
+                    obligations, resolve disputes, and enforce our agreements. Locally stored data remains on your
+                    device until you remove the app or clear that data.
+                </p>
+            </section>
+
+            <section class="section">
+                <h2>Your Choices</h2>
+                <ul>
+                    <li>You can stop using the app at any time.</li>
+                    <li>You can sign out from within the app.</li>
+                    <li>You can choose whether to submit vendor information or event planning details.</li>
+                    <li>You can remove locally stored app data by deleting the app from your device.</li>
+                </ul>
+            </section>
+
+            <section class="section">
+                <h2>Children’s Privacy</h2>
+                <p>
+                    BookMyEvent is not directed to children under 13, and we do not knowingly collect personal
+                    information from children under 13.
+                </p>
+            </section>
+
+            <section class="section full">
+                <h2>Third-Party Services</h2>
+                <p>
+                    Third-party services may have their own privacy policies. For Firebase Authentication, see
+                    <a href="https://firebase.google.com/support/privacy" rel="noreferrer">Firebase Privacy and Security</a>.
+                </p>
+            </section>
+
+            <section class="section full">
+                <h2>Changes To This Policy</h2>
+                <p>
+                    We may update this Privacy Policy from time to time. When we do, we will revise the effective date
+                    shown on this page.
+                </p>
+            </section>
+
+            <section class="section full">
+                <h2>Contact</h2>
+                <p>
+                    For privacy questions or requests, please use the developer contact information provided in the
+                    BookMyEvent App Store listing or support channel.
+                </p>
+            </section>
+        </div>
+
+        <p class="footer">
+            This policy reflects the current behavior of the BookMyEvent iOS app as of March 28, 2026.
+        </p>
+    </main>
+</body>
+</html>
