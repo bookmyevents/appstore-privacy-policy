@@ -2,12 +2,347 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <meta http-equiv="refresh" content="0; url=./privacy.html">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>EventAura</title>
-    <link rel="canonical" href="https://bookmyevents.live/privacy.html">
+    <style>
+        :root {
+            --bg: #f6f7f4;
+            --panel: rgba(255, 255, 255, 0.82);
+            --text: #173333;
+            --muted: #5d7474;
+            --accent: #008f9e;
+            --accent-dark: #0f676f;
+            --accent-warm: #e3513d;
+            --line: rgba(23, 51, 51, 0.12);
+            --shadow: 0 24px 60px rgba(15, 40, 40, 0.12);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: "Georgia", "Times New Roman", serif;
+            color: var(--text);
+            background:
+                radial-gradient(circle at top left, rgba(0, 143, 158, 0.18), transparent 28%),
+                radial-gradient(circle at top right, rgba(227, 81, 61, 0.14), transparent 24%),
+                linear-gradient(180deg, #f9faf7 0%, var(--bg) 100%);
+            line-height: 1.65;
+        }
+
+        .wrap {
+            width: min(1080px, calc(100% - 32px));
+            margin: 40px auto 56px;
+        }
+
+        .hero,
+        .panel {
+            background: var(--panel);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--line);
+            border-radius: 28px;
+            box-shadow: var(--shadow);
+        }
+
+        .hero {
+            padding: 42px 36px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .hero::after {
+            content: "";
+            position: absolute;
+            inset: auto -60px -80px auto;
+            width: 280px;
+            height: 280px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(0, 143, 158, 0.18), transparent 70%);
+        }
+
+        .eyebrow {
+            display: inline-block;
+            padding: 6px 12px;
+            border-radius: 999px;
+            background: rgba(0, 143, 158, 0.10);
+            color: var(--accent-dark);
+            font-size: 0.84rem;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+        }
+
+        h1,
+        h2,
+        h3,
+        p {
+            margin: 0;
+        }
+
+        h1 {
+            margin-top: 14px;
+            font-size: clamp(2.5rem, 6vw, 4.8rem);
+            line-height: 0.96;
+            max-width: 9ch;
+        }
+
+        .hero-copy {
+            margin-top: 18px;
+            max-width: 58ch;
+            color: var(--muted);
+            font-size: 1.06rem;
+        }
+
+        .actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 26px;
+        }
+
+        .button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 146px;
+            padding: 12px 18px;
+            border-radius: 999px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 140ms ease, box-shadow 140ms ease;
+        }
+
+        .button:hover {
+            transform: translateY(-1px);
+        }
+
+        .button-primary {
+            color: white;
+            background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+            box-shadow: 0 12px 28px rgba(0, 143, 158, 0.24);
+        }
+
+        .button-secondary {
+            color: var(--accent-dark);
+            background: rgba(255, 255, 255, 0.7);
+            border: 1px solid rgba(0, 143, 158, 0.18);
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: 1.35fr 0.95fr;
+            gap: 20px;
+            margin-top: 22px;
+        }
+
+        .stack {
+            display: grid;
+            gap: 20px;
+        }
+
+        .panel {
+            padding: 26px 24px;
+        }
+
+        .panel h2 {
+            font-size: 1.45rem;
+            margin-bottom: 10px;
+        }
+
+        .panel h3 {
+            font-size: 1.08rem;
+            margin-bottom: 8px;
+        }
+
+        .panel p,
+        .panel li {
+            color: var(--muted);
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 16px;
+            margin-top: 18px;
+        }
+
+        .feature {
+            padding: 18px;
+            border-radius: 22px;
+            background: rgba(255, 255, 255, 0.62);
+            border: 1px solid rgba(23, 51, 51, 0.08);
+        }
+
+        .feature strong {
+            display: block;
+            margin-bottom: 6px;
+            color: var(--text);
+        }
+
+        .glimpse {
+            display: grid;
+            gap: 14px;
+            margin-top: 18px;
+        }
+
+        .glimpse-card {
+            padding: 18px;
+            border-radius: 22px;
+            color: white;
+            min-height: 120px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .glimpse-card strong {
+            font-size: 1.08rem;
+        }
+
+        .glimpse-card span {
+            opacity: 0.9;
+        }
+
+        .aura {
+            background: linear-gradient(145deg, #0f676f, #008f9e);
+        }
+
+        .vendors {
+            background: linear-gradient(145deg, #d85d45, #f08c5a);
+        }
+
+        .packages {
+            background: linear-gradient(145deg, #425d7a, #688cb5);
+        }
+
+        ul {
+            margin: 12px 0 0;
+            padding-left: 20px;
+        }
+
+        .footer {
+            margin: 20px 6px 0;
+            color: var(--muted);
+            font-size: 0.94rem;
+        }
+
+        @media (max-width: 860px) {
+            .grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 680px) {
+            .wrap {
+                width: min(100% - 20px, 1080px);
+                margin: 20px auto 32px;
+            }
+
+            .hero,
+            .panel {
+                border-radius: 22px;
+            }
+
+            .hero,
+            .panel {
+                padding: 24px 20px;
+            }
+
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+
+            h1 {
+                max-width: none;
+            }
+        }
+    </style>
 </head>
 <body>
-    <p>Redirecting to <a href="./privacy.html">EventAura Privacy Policy</a>...</p>
+    <main class="wrap">
+        <section class="hero">
+            <span class="eyebrow">AI Event Planning</span>
+            <h1>EventAura helps every celebration feel organized.</h1>
+            <p class="hero-copy">
+                Discover vendors, compare packages, and use Aura AI to guide decisions around venues, budgets,
+                priorities, and planning flow for weddings, birthdays, parties, and special events.
+            </p>
+            <div class="actions">
+                <a class="button button-primary" href="./support.html">Support</a>
+                <a class="button button-secondary" href="./privacy.html">Privacy Policy</a>
+            </div>
+        </section>
+
+        <section class="grid">
+            <div class="panel">
+                <h2>What EventAura Looks Like</h2>
+                <p>
+                    The app is built around quick planning decisions: what kind of event you are hosting, who you need,
+                    what your budget allows, and which services matter most.
+                </p>
+                <div class="feature-grid">
+                    <div class="feature">
+                        <strong>Aura AI</strong>
+                        Guides planning with context-aware suggestions for guest count, location, budget, and vendors.
+                    </div>
+                    <div class="feature">
+                        <strong>Vendor Discovery</strong>
+                        Browse decorators, caterers, photographers, entertainers, and other event services.
+                    </div>
+                    <div class="feature">
+                        <strong>Package Selection</strong>
+                        Explore curated packages that simplify early decision-making for common event types.
+                    </div>
+                    <div class="feature">
+                        <strong>Planning Flow</strong>
+                        Move from idea to shortlist with less friction and more confidence.
+                    </div>
+                </div>
+            </div>
+
+            <div class="stack">
+                <section class="panel">
+                    <h2>Quick Links</h2>
+                    <ul>
+                        <li><a href="./support.html">Get support for EventAura</a></li>
+                        <li><a href="./privacy.html">Read the privacy policy</a></li>
+                    </ul>
+                </section>
+
+                <section class="panel">
+                    <h2>Best For</h2>
+                    <ul>
+                        <li>Birthday planning</li>
+                        <li>Wedding service discovery</li>
+                        <li>Party packages and vendor comparisons</li>
+                        <li>AI-assisted event decisions</li>
+                    </ul>
+                </section>
+            </div>
+        </section>
+
+        <section class="panel" style="margin-top: 22px;">
+            <h2>Glimpses Of The App</h2>
+            <div class="glimpse">
+                <div class="glimpse-card aura">
+                    <strong>Aura AI Chat</strong>
+                    <span>Ask what to book first, which vendors fit the budget, or how to shape the event plan.</span>
+                </div>
+                <div class="glimpse-card vendors">
+                    <strong>Vendor Search</strong>
+                    <span>Scan available services by category, rating, location, and practical fit for the event.</span>
+                </div>
+                <div class="glimpse-card packages">
+                    <strong>Curated Packages</strong>
+                    <span>Compare ready-made options that reduce planning time for common celebration setups.</span>
+                </div>
+            </div>
+        </section>
+
+        <p class="footer">
+            EventAura is the public site for app privacy information, support, and a quick overview of the product.
+        </p>
+    </main>
 </body>
 </html>
