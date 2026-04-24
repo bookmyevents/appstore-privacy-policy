@@ -6,14 +6,18 @@
     <title>EventAura Support</title>
     <style>
         :root {
-            --bg: #f6f7f4;
-            --panel: rgba(255, 255, 255, 0.82);
-            --text: #173333;
-            --muted: #5d7474;
-            --accent: #008f9e;
-            --accent-dark: #0f676f;
-            --line: rgba(23, 51, 51, 0.12);
-            --shadow: 0 24px 60px rgba(15, 40, 40, 0.12);
+            --primary: #e81f63;
+            --accent: #ff7042;
+            --violet: #8f33f0;
+            --mint: #26d6ba;
+            --soft-pink: #fff0f5;
+            --surface: rgba(255, 255, 255, 0.94);
+            --surface-strong: rgba(255, 255, 255, 0.98);
+            --text: #171717;
+            --muted: rgba(23, 23, 23, 0.68);
+            --line: rgba(232, 31, 99, 0.12);
+            --shadow: 0 18px 40px rgba(143, 51, 240, 0.12);
+            --chip-gradient: linear-gradient(135deg, rgba(232, 31, 99, 0.86), rgba(143, 51, 240, 0.86));
         }
 
         * {
@@ -22,150 +26,238 @@
 
         body {
             margin: 0;
-            font-family: "Georgia", "Times New Roman", serif;
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Segoe UI", sans-serif;
             color: var(--text);
             background:
-                radial-gradient(circle at top left, rgba(0, 143, 158, 0.18), transparent 28%),
-                radial-gradient(circle at top right, rgba(227, 81, 61, 0.14), transparent 24%),
-                linear-gradient(180deg, #f9faf7 0%, var(--bg) 100%);
-            line-height: 1.65;
+                radial-gradient(circle at 0% 0%, rgba(232, 31, 99, 0.16), transparent 32%),
+                radial-gradient(circle at 100% 10%, rgba(143, 51, 240, 0.14), transparent 28%),
+                radial-gradient(circle at 30% 100%, rgba(38, 214, 186, 0.12), transparent 26%),
+                linear-gradient(180deg, #ffffff 0%, var(--soft-pink) 52%, #ffffff 100%);
+            line-height: 1.55;
         }
 
         .wrap {
-            width: min(920px, calc(100% - 32px));
-            margin: 48px auto;
+            width: 100%;
+            margin: 0;
+            padding: 18px 18px 28px;
         }
 
         .hero,
-        .section {
-            background: var(--panel);
-            backdrop-filter: blur(10px);
+        .panel {
+            background: var(--surface);
             border: 1px solid var(--line);
-            border-radius: 24px;
+            border-radius: 28px;
             box-shadow: var(--shadow);
         }
 
         .hero {
-            padding: 40px 32px;
-            margin-bottom: 20px;
-            overflow: hidden;
+            padding: 28px;
             position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            inset: -80px auto auto -60px;
+            width: 220px;
+            height: 220px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(232, 31, 99, 0.16), transparent 70%);
         }
 
         .hero::after {
             content: "";
             position: absolute;
-            inset: auto -40px -60px auto;
-            width: 220px;
-            height: 220px;
+            inset: auto -80px -80px auto;
+            width: 260px;
+            height: 260px;
             border-radius: 50%;
-            background: radial-gradient(circle, rgba(0, 143, 158, 0.18), transparent 70%);
+            background: radial-gradient(circle, rgba(143, 51, 240, 0.16), transparent 70%);
+        }
+
+        .hero-grid {
+            position: relative;
+            z-index: 1;
+            display: grid;
+            grid-template-columns: minmax(0, 1.1fr) minmax(320px, 0.9fr);
+            gap: 18px;
+            align-items: start;
         }
 
         .eyebrow {
-            display: inline-block;
-            padding: 6px 12px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 7px 12px;
             border-radius: 999px;
-            background: rgba(0, 143, 158, 0.10);
-            color: var(--accent-dark);
+            background: rgba(255, 255, 255, 0.82);
+            border: 1px solid rgba(232, 31, 99, 0.14);
+            color: var(--primary);
             font-size: 0.84rem;
-            letter-spacing: 0.04em;
-            text-transform: uppercase;
+            font-weight: 600;
         }
 
         h1,
-        h2 {
-            margin: 0 0 12px;
-            line-height: 1.15;
+        h2,
+        h3,
+        p {
+            margin: 0;
         }
 
         h1 {
-            font-size: clamp(2.2rem, 5vw, 3.6rem);
-            max-width: 10ch;
+            margin-top: 14px;
+            font-size: clamp(2.2rem, 5vw, 3.8rem);
+            line-height: 0.96;
+            letter-spacing: -0.04em;
+            max-width: 9ch;
         }
 
-        h2 {
-            font-size: 1.3rem;
-        }
-
-        p {
-            margin: 0;
+        .hero-copy,
+        .panel p,
+        .panel li {
             color: var(--muted);
         }
 
-        .hero p {
-            max-width: 60ch;
-            font-size: 1.05rem;
+        .hero-copy {
+            margin-top: 14px;
+            max-width: 58ch;
+            font-size: 1rem;
         }
 
-        .grid {
+        .panel-grid {
             display: grid;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 20px;
+            grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+            gap: 18px;
+            margin-top: 18px;
         }
 
-        .section {
-            padding: 26px 24px;
+        .panel {
+            padding: 22px;
+        }
+
+        .panel h2 {
+            font-size: 1.32rem;
+            margin-bottom: 10px;
+            letter-spacing: -0.02em;
         }
 
         .full {
             grid-column: 1 / -1;
         }
 
-        .callout {
-            margin-top: 18px;
-            padding: 16px 18px;
-            border-radius: 18px;
-            background: rgba(0, 143, 158, 0.08);
-            border: 1px solid rgba(0, 143, 158, 0.18);
+        .card,
+        .contact-card,
+        .steps li {
+            background: var(--surface-strong);
+            border: 1px solid rgba(232, 31, 99, 0.10);
+            box-shadow: 0 10px 24px rgba(17, 17, 17, 0.04);
+            border-radius: 20px;
         }
 
-        .contact {
+        .contact-card {
+            padding: 18px;
+        }
+
+        .icon-badge {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 44px;
+            height: 44px;
+            border-radius: 14px;
+            background: var(--chip-gradient);
+            color: #fff;
+            font-size: 1.1rem;
+            font-weight: 800;
+            flex: none;
+        }
+
+        .contact-head {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+
+        .contact-link {
             display: inline-block;
-            margin-top: 12px;
-            font-size: 1.05rem;
-            color: var(--accent-dark);
+            margin-top: 10px;
+            color: var(--primary);
+            font-weight: 700;
             text-decoration: none;
-            font-weight: 600;
+            word-break: break-word;
         }
 
         ul {
             margin: 12px 0 0;
-            padding-left: 20px;
-            color: var(--muted);
+            padding-left: 0;
+            list-style: none;
         }
 
-        a {
-            color: var(--accent-dark);
+        .steps li {
+            padding: 14px 16px;
+            margin-top: 10px;
+        }
+
+        .actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 16px;
+        }
+
+        .button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 158px;
+            padding: 13px 18px;
+            border-radius: 18px;
+            text-decoration: none;
+            font-weight: 700;
+        }
+
+        .button-primary {
+            color: #fff;
+            background: var(--chip-gradient);
+        }
+
+        .button-secondary {
+            color: var(--text);
+            background: var(--surface-strong);
+            border: 1px solid rgba(232, 31, 99, 0.12);
         }
 
         .footer {
-            margin: 20px 6px 48px;
+            margin: 18px 6px 0;
             color: var(--muted);
-            font-size: 0.95rem;
+            font-size: 0.92rem;
         }
 
-        @media (max-width: 760px) {
+        a {
+            color: var(--primary);
+        }
+
+        @media (max-width: 920px) {
+            .hero-grid,
+            .panel-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 680px) {
             .wrap {
-                width: min(100% - 24px, 920px);
-                margin: 24px auto;
+                padding: 12px 12px 22px;
             }
 
             .hero,
-            .section {
-                border-radius: 20px;
+            .panel {
+                border-radius: 22px;
+                padding: 18px;
             }
 
-            .hero {
-                padding: 30px 22px;
-            }
-
-            .section {
-                padding: 22px 20px;
-            }
-
-            .grid {
-                grid-template-columns: 1fr;
+            h1 {
+                max-width: none;
             }
         }
     </style>
@@ -173,22 +265,33 @@
 <body>
     <main class="wrap">
         <section class="hero">
-            <span class="eyebrow">EventAura Support</span>
-            <h1>Help for planning and booking issues.</h1>
-            <p>
-                If you need help with EventAura, use the contact details below. This page is intended for App Store
-                support and general customer questions.
-            </p>
-            <div class="callout">
-                <strong>Support email</strong><br>
-                <a class="contact" href="mailto:support@bookmyevent.live">support@bookmyevent.live</a>
+            <div class="hero-grid">
+                <div>
+                    <span class="eyebrow">EventAura Support</span>
+                    <h1>Help for planning and booking issues.</h1>
+                    <p class="hero-copy">
+                        Use this page for App Store support, login help, bug reports, and general EventAura questions.
+                        The visual style matches the main landing page and the app’s iPhone experience.
+                    </p>
+                </div>
+
+                <section class="contact-card">
+                    <div class="contact-head">
+                        <span class="icon-badge">?</span>
+                        <div>
+                            <strong>Support email</strong>
+                            <p>Reach the EventAura support inbox directly.</p>
+                        </div>
+                    </div>
+                    <a class="contact-link" href="mailto:support@bookmyevent.live">support@bookmyevent.live</a>
+                </section>
             </div>
         </section>
 
-        <div class="grid">
-            <section class="section">
-                <h2>What To Include</h2>
-                <ul>
+        <section class="panel-grid">
+            <section class="panel">
+                <h2>What to include</h2>
+                <ul class="steps">
                     <li>Your device model and iOS version</li>
                     <li>The feature or screen you were using</li>
                     <li>A short description of the issue</li>
@@ -196,24 +299,25 @@
                 </ul>
             </section>
 
-            <section class="section">
-                <h2>Support Topics</h2>
-                <ul>
+            <section class="panel">
+                <h2>Support topics</h2>
+                <ul class="steps">
                     <li>Login or verification problems</li>
                     <li>Vendor discovery or booking questions</li>
                     <li>AI assistant guidance issues</li>
-                    <li>General app feedback and bug reports</li>
+                    <li>General feedback and bug reports</li>
                 </ul>
             </section>
 
-            <section class="section full">
-                <h2>Privacy</h2>
-                <p>
-                    For details about how EventAura handles data, read the
-                    <a href="./privacy.html">Privacy Policy</a>.
-                </p>
+            <section class="panel full">
+                <h2>Related pages</h2>
+                <p>Use the links below for policy details or to return to the EventAura landing page.</p>
+                <div class="actions">
+                    <a class="button button-primary" href="./privacy.html">Privacy Policy</a>
+                    <a class="button button-secondary" href="./index.html">Back to Home</a>
+                </div>
             </section>
-        </div>
+        </section>
 
         <p class="footer">
             For App Store support, contact EventAura at support@bookmyevent.live.

@@ -6,14 +6,18 @@
     <title>EventAura Privacy Policy</title>
     <style>
         :root {
-            --bg: #f6f7f4;
-            --panel: rgba(255, 255, 255, 0.82);
-            --text: #173333;
-            --muted: #5d7474;
-            --accent: #008f9e;
-            --accent-dark: #0f676f;
-            --line: rgba(23, 51, 51, 0.12);
-            --shadow: 0 24px 60px rgba(15, 40, 40, 0.12);
+            --primary: #e81f63;
+            --accent: #ff7042;
+            --violet: #8f33f0;
+            --mint: #26d6ba;
+            --soft-pink: #fff0f5;
+            --surface: rgba(255, 255, 255, 0.94);
+            --surface-strong: rgba(255, 255, 255, 0.98);
+            --text: #171717;
+            --muted: rgba(23, 23, 23, 0.68);
+            --line: rgba(232, 31, 99, 0.12);
+            --shadow: 0 18px 40px rgba(143, 51, 240, 0.12);
+            --chip-gradient: linear-gradient(135deg, rgba(232, 31, 99, 0.86), rgba(143, 51, 240, 0.86));
         }
 
         * {
@@ -22,139 +26,170 @@
 
         body {
             margin: 0;
-            font-family: "Georgia", "Times New Roman", serif;
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Segoe UI", sans-serif;
             color: var(--text);
             background:
-                radial-gradient(circle at top left, rgba(0, 143, 158, 0.18), transparent 28%),
-                radial-gradient(circle at top right, rgba(227, 81, 61, 0.14), transparent 24%),
-                linear-gradient(180deg, #f9faf7 0%, var(--bg) 100%);
-            line-height: 1.65;
+                radial-gradient(circle at 0% 0%, rgba(232, 31, 99, 0.16), transparent 32%),
+                radial-gradient(circle at 100% 10%, rgba(143, 51, 240, 0.14), transparent 28%),
+                radial-gradient(circle at 30% 100%, rgba(38, 214, 186, 0.12), transparent 26%),
+                linear-gradient(180deg, #ffffff 0%, var(--soft-pink) 52%, #ffffff 100%);
+            line-height: 1.58;
         }
 
         .wrap {
-            width: min(920px, calc(100% - 32px));
-            margin: 48px auto;
+            width: 100%;
+            margin: 0;
+            padding: 18px 18px 28px;
         }
 
         .hero,
         .section {
-            background: var(--panel);
-            backdrop-filter: blur(10px);
+            background: var(--surface);
             border: 1px solid var(--line);
-            border-radius: 24px;
+            border-radius: 28px;
             box-shadow: var(--shadow);
         }
 
         .hero {
-            padding: 40px 32px;
-            margin-bottom: 20px;
-            overflow: hidden;
+            padding: 28px;
             position: relative;
+            overflow: hidden;
+            margin-bottom: 18px;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            inset: -80px auto auto -60px;
+            width: 220px;
+            height: 220px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(232, 31, 99, 0.16), transparent 70%);
         }
 
         .hero::after {
             content: "";
             position: absolute;
-            inset: auto -40px -60px auto;
-            width: 220px;
-            height: 220px;
+            inset: auto -80px -80px auto;
+            width: 260px;
+            height: 260px;
             border-radius: 50%;
-            background: radial-gradient(circle, rgba(0, 143, 158, 0.18), transparent 70%);
+            background: radial-gradient(circle, rgba(143, 51, 240, 0.16), transparent 70%);
+        }
+
+        .hero-inner {
+            position: relative;
+            z-index: 1;
         }
 
         .eyebrow {
-            display: inline-block;
-            padding: 6px 12px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 7px 12px;
             border-radius: 999px;
-            background: rgba(0, 143, 158, 0.10);
-            color: var(--accent-dark);
+            background: rgba(255, 255, 255, 0.82);
+            border: 1px solid rgba(232, 31, 99, 0.14);
+            color: var(--primary);
             font-size: 0.84rem;
-            letter-spacing: 0.04em;
-            text-transform: uppercase;
+            font-weight: 600;
         }
 
         h1,
         h2,
-        h3 {
-            margin: 0 0 12px;
-            line-height: 1.15;
+        p {
+            margin: 0;
         }
 
         h1 {
-            font-size: clamp(2.2rem, 5vw, 4rem);
-            margin-top: 18px;
+            margin-top: 14px;
+            font-size: clamp(2.2rem, 5vw, 3.8rem);
+            line-height: 0.96;
+            letter-spacing: -0.04em;
         }
 
-        h2 {
-            font-size: 1.45rem;
-            padding-bottom: 10px;
-            border-bottom: 1px solid var(--line);
+        .meta,
+        .hero-copy,
+        .section p,
+        .section li {
+            color: var(--muted);
         }
 
-        p,
-        li {
-            font-size: 1.03rem;
+        .hero-copy {
+            margin-top: 14px;
+            max-width: 60ch;
+            font-size: 1rem;
         }
 
         .meta {
-            margin-top: 16px;
-            color: var(--muted);
+            margin-top: 14px;
+            font-weight: 600;
         }
 
         .grid {
             display: grid;
             grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 20px;
+            gap: 18px;
         }
 
         .section {
-            padding: 28px;
+            padding: 22px;
         }
 
         .section.full {
             grid-column: 1 / -1;
         }
 
+        .section h2 {
+            font-size: 1.28rem;
+            margin-bottom: 10px;
+            letter-spacing: -0.02em;
+        }
+
         ul {
-            margin: 14px 0 0;
-            padding-left: 22px;
+            margin: 12px 0 0;
+            padding-left: 0;
+            list-style: none;
+        }
+
+        li {
+            margin-top: 10px;
+            padding: 14px 16px;
+            background: var(--surface-strong);
+            border: 1px solid rgba(232, 31, 99, 0.10);
+            box-shadow: 0 10px 24px rgba(17, 17, 17, 0.04);
+            border-radius: 20px;
         }
 
         strong {
-            color: var(--accent-dark);
+            color: var(--primary);
         }
 
         a {
-            color: var(--accent);
+            color: var(--primary);
         }
 
         .footer {
-            margin: 22px 4px 0;
+            margin: 18px 6px 0;
             color: var(--muted);
-            font-size: 0.95rem;
+            font-size: 0.92rem;
         }
 
-        @media (max-width: 720px) {
+        @media (max-width: 860px) {
+            .grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 680px) {
             .wrap {
-                width: min(100% - 20px, 920px);
-                margin: 20px auto 28px;
+                padding: 12px 12px 22px;
             }
 
             .hero,
             .section {
-                border-radius: 18px;
-            }
-
-            .hero {
-                padding: 28px 22px;
-            }
-
-            .section {
-                padding: 22px;
-            }
-
-            .grid {
-                grid-template-columns: 1fr;
+                border-radius: 22px;
+                padding: 18px;
             }
         }
     </style>
@@ -162,31 +197,31 @@
 <body>
     <main class="wrap">
         <section class="hero">
-            <span class="eyebrow">EventAura</span>
-            <h1>Privacy Policy</h1>
-            <p>
-                This Privacy Policy explains how EventAura collects, uses, and shares information when you use the
-                EventAura iOS application.
-            </p>
-            <p class="meta">
-                Effective date: March 28, 2026
-            </p>
+            <div class="hero-inner">
+                <span class="eyebrow">EventAura Privacy</span>
+                <h1>Privacy Policy</h1>
+                <p class="hero-copy">
+                    This policy explains how EventAura collects, uses, and shares information when you use the
+                    EventAura iOS application.
+                </p>
+                <p class="meta">Effective date: March 28, 2026</p>
+            </div>
         </section>
 
         <div class="grid">
             <section class="section">
-                <h2>Information We Collect</h2>
+                <h2>Information we collect</h2>
                 <ul>
                     <li><strong>Phone number and verification data</strong> to sign you in with one-time password authentication.</li>
-                    <li><strong>Vendor registration details</strong> such as business name, category, description, services, phone number, email, location, pricing level, and availability if you choose to create a vendor listing.</li>
-                    <li><strong>Event planning inputs</strong> such as event type, location, guest count, budget, date, and preferences entered in the app or AI Assistant.</li>
-                    <li><strong>On-device preference data</strong> such as login state, saved phone number, vendor status, and favorites stored locally on your device.</li>
-                    <li><strong>Technical verification data</strong> used by Firebase Authentication, including information needed to deliver and validate phone sign-in and related anti-abuse checks.</li>
+                    <li><strong>Vendor registration details</strong> if you choose to create a vendor listing.</li>
+                    <li><strong>Event planning inputs</strong> such as event type, location, guest count, budget, date, and preferences.</li>
+                    <li><strong>On-device preference data</strong> such as login state, saved phone number, vendor status, and favorites.</li>
+                    <li><strong>Technical verification data</strong> used by Firebase Authentication for phone sign-in and anti-abuse checks.</li>
                 </ul>
             </section>
 
             <section class="section">
-                <h2>How We Use Information</h2>
+                <h2>How we use information</h2>
                 <ul>
                     <li>To authenticate users and maintain sign-in state.</li>
                     <li>To create and display vendor listings inside the app.</li>
@@ -197,26 +232,26 @@
             </section>
 
             <section class="section full">
-                <h2>How Information Is Shared</h2>
+                <h2>How information is shared</h2>
                 <p>
                     We do not sell your personal information. We may share information with service providers that help
-                    us operate the app. At this time, EventAura uses <strong>Firebase Authentication</strong> from
-                    Google to support phone number sign-in and related verification flows. Information you submit as a
-                    vendor may also be displayed to other users inside the app as part of your listing.
+                    us operate the app. EventAura currently uses <strong>Firebase Authentication</strong> from Google
+                    to support phone number sign-in and verification flows. Information submitted as a vendor may also
+                    be displayed to other users inside the app as part of your listing.
                 </p>
             </section>
 
             <section class="section">
-                <h2>Data Storage</h2>
+                <h2>Data storage</h2>
                 <p>
                     Some information is stored locally on your device, including login state, your phone number, vendor
                     status, and favorites. Authentication and verification-related information may be processed by
-                    Firebase Authentication according to Google’s terms and privacy practices.
+                    Firebase Authentication according to Google’s privacy practices.
                 </p>
             </section>
 
             <section class="section">
-                <h2>Data Retention</h2>
+                <h2>Data retention</h2>
                 <p>
                     We retain information for as long as needed to provide the app’s functionality, comply with legal
                     obligations, resolve disputes, and enforce our agreements. Locally stored data remains on your
@@ -225,7 +260,7 @@
             </section>
 
             <section class="section">
-                <h2>Your Choices</h2>
+                <h2>Your choices</h2>
                 <ul>
                     <li>You can stop using the app at any time.</li>
                     <li>You can sign out from within the app.</li>
@@ -235,7 +270,7 @@
             </section>
 
             <section class="section">
-                <h2>Children’s Privacy</h2>
+                <h2>Children’s privacy</h2>
                 <p>
                     EventAura is not directed to children under 13, and we do not knowingly collect personal
                     information from children under 13.
@@ -243,7 +278,7 @@
             </section>
 
             <section class="section full">
-                <h2>Third-Party Services</h2>
+                <h2>Third-party services</h2>
                 <p>
                     Third-party services may have their own privacy policies. For Firebase Authentication, see
                     <a href="https://firebase.google.com/support/privacy" rel="noreferrer">Firebase Privacy and Security</a>.
@@ -251,7 +286,7 @@
             </section>
 
             <section class="section full">
-                <h2>Changes To This Policy</h2>
+                <h2>Changes to this policy</h2>
                 <p>
                     We may update this Privacy Policy from time to time. When we do, we will revise the effective date
                     shown on this page.
