@@ -345,6 +345,19 @@
             font-size: 0.92rem;
         }
 
+        .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+            margin-top: 10px;
+        }
+
+        .footer-links a {
+            color: var(--primary);
+            font-weight: 700;
+            text-decoration: none;
+        }
+
         @media (max-width: 920px) {
             .hero-grid,
             .content-grid,
@@ -521,17 +534,12 @@
             </div>
         </section>
 
-        <section class="panel">
-            <h2>Support and privacy</h2>
-            <p>For App Store review, customer assistance, and policy details, use the links below.</p>
-            <div class="hero-actions">
-                <a class="button button-primary" href="./support.html">Support</a>
-                <a class="button button-secondary" href="./privacy.html">Privacy Policy</a>
-            </div>
-        </section>
-
         <p class="footer">
             EventAura for web: support, privacy, and a lightweight version of the app’s visual identity.
+            <span class="footer-links">
+                <a href="./support.html">Support</a>
+                <a href="./privacy.html">Privacy Policy</a>
+            </span>
         </p>
     </main>
 </body>
